@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="main">
+   <h1 class="title">{{snip.title}}</h1>
+    <div class="container">
+ {% if snip.is_encrypted %}
+        <input class="input" type="password" id="pass" placeholder="password" required>
+        <button class="button is-success" id="text_decrypt" onclick="decrypt()">Decrypt</button>
+    {% endif %}
+    </div>
+
+
+    <b><time>{{snip.updated_at}}</time></b>
+    <div>
+        <b>Snippet URL:</b> <a href="{{ request.build_absolute_uri }}">"{{ request.build_absolute_uri }}"</a>
+    </div>
+    <pre class="has-background-grey-light" id="textd">{{snip.text}}</pre>
+
+</div>
+<script>
+function decrypt(){
+    texta = document.getElementById('textd')
+    key = document.getElementById('pass')
+    encrypted = texta.innerText
+    var decrypted = CryptoJS.AES.decrypt(encrypted, key.value);
+    message = decrypted.toString(CryptoJS.enc.Utf8);
+    if (message == '') {
+        alert('unable to decrypt message')
+    }
+    else {
+        texta.innerText = message
+    }
+
+};
+</script>
+{% endblock %}
