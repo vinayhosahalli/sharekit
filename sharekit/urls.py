@@ -1,4 +1,4 @@
-"""snippet_share URL Configuration
+"""sharekit URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -24,4 +24,4 @@ urlpatterns = [
     url('', include('snip_app.urls')),
     url('accounts/', include('accounts.urls')),
 ]
-handler404 = 'snippet_share.views.page_not_found_view'
+handler404 = 'sharekit.views.page_not_found_view'

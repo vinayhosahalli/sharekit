@@ -1,5 +1,5 @@
 """
-WSGI config for snippet_share project.
+WSGI config for sharekit project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'snippet_share.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'sharekit.settings')
 
 application = get_wsgi_application()
